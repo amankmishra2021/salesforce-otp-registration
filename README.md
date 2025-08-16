@@ -1,18 +1,68 @@
-# Salesforce DX Project: Next Steps
+# Salesforce OTP-Based Account Registration
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This project implements a secure OTP-based account registration flow in Salesforce using Lightning Web Components (LWC).
 
-## How Do You Plan to Deploy Your Changes?
+## Features
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+- Email-based OTP verification
+- Multi-step registration process
+- Custom OTP verification object
+- Secure account creation
+- Mobile-responsive design
 
-## Configure Your Salesforce DX Project
+## Components
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+1. **OTP Verification Component**
+   - Handles email input and OTP verification
+   - Multi-step wizard interface
+   - Success/error notifications
 
-## Read All About It
+2. **Account Signup Form**
+   - Collects account details after OTP verification
+   - Validates input fields
+   - Creates account record
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+3. **Apex Controllers**
+   - `OTPService.cls`: Manages OTP generation and verification
+   - `AccountSignupController.cls`: Handles account creation
+
+## Custom Objects
+
+### OTP_Verification__c
+- Email__c
+- OTP__c
+- Status__c
+- Attempts__c
+- Is_Verified__c
+- Expiration__c
+- Account__c
+
+## Setup Instructions
+
+1. Deploy the components to your Salesforce org:
+```bash
+sfdx force:source:deploy -p force-app
+```
+
+2. Assign the necessary permissions to users
+
+3. Add the components to your Lightning page or community
+
+## Development
+
+To work on this project:
+
+1. Clone the repository
+2. Set up your Salesforce DX environment
+3. Create a scratch org:
+```bash
+sfdx force:org:create -f config/project-scratch-def.json -a DevOrg
+```
+4. Push the source:
+```bash
+sfdx force:source:push
+```
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
