@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template for sending OTP verification code</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>OTP Verification Email</name>
+    <style>none</style>
+    <subject>Your Verification Code for Account Registration</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+    <content>Hello,
+
+Your verification code for account registration is: {!OTP_Verification__c.OTP__c}
+
+This code will expire in {!OTP_Configuration__c.OTP_Validity_Minutes__c} minutes.
+
+If you did not request this code, please ignore this email.
+
+Best regards,
+{!Organization.Name}</content>
+</EmailTemplate>
