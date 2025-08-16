@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template for sending OTP verification code</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>OTP Verification Email</name>
+    <style>freeForm</style>
+    <subject>Your Verification Code for Account Registration</subject>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+    <content>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;style type="text/css"&gt;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #1589EE;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            border-radius: 4px 4px 0 0;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #dddddd;
+            border-radius: 0 0 4px 4px;
+        }
+        .otp-code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1589EE;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            letter-spacing: 4px;
+        }
+        .warning {
+            color: #666666;
+            font-size: 12px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666666;
+            font-size: 12px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="header"&gt;
+            &lt;h2&gt;Account Registration Verification&lt;/h2&gt;
+        &lt;/div&gt;
+        &lt;div class="content"&gt;
+            &lt;p&gt;Hello,&lt;/p&gt;
+            
+            &lt;p&gt;Thank you for starting your account registration process with {!Organization.Name}. To verify your email address, please use the following verification code:&lt;/p&gt;
+            
+            &lt;div class="otp-code"&gt;{!OTP_Verification__c.OTP__c}&lt;/div&gt;
+            
+            &lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; This code will expire in &lt;strong&gt;{!OTP_Configuration__c.OTP_Validity_Minutes__c} minutes&lt;/strong&gt;.&lt;/p&gt;
+            
+            &lt;div class="warning"&gt;
+                &lt;p&gt;⚠️ Security Notice:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Never share this code with anyone&lt;/li&gt;
+                    &lt;li&gt;Our team will never ask for this code&lt;/li&gt;
+                    &lt;li&gt;If you didn't request this code, please ignore this email&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="footer"&gt;
+            &lt;p&gt;This is an automated message from {!Organization.Name}. Please do not reply to this email.&lt;/p&gt;
+            &lt;p&gt;© {!YEAR(TODAY())} {!Organization.Name}. All rights reserved.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </content>
+</EmailTemplate>
